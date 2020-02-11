@@ -8,40 +8,8 @@
 
 #  基本框架
 
-```mermaid
-flowchat
-st=>start: 开始
-e=>end: 结束
-op1=>operation: 模拟Chrome浏览器打开公共数据库
-op2=>operation: 抓取验证码并保存至本地
-cond1=>condition: 是否存在样本库
-op3=>operation: 创建样本库
-op4=>operation: 遍历样本库进行验证码的匹配
-cond2=>condition: 是否匹配成功
-cond3=>condition: 是否（重新）训练模型
-op5=>operation: 创建训练集训练模型并保存本地
-op6=>operation: 调用模型识别验证码
-op7=>operation: 获取对应验证码
-op8=>operation: 使用验证码重新登录
-cond4=>condition: 是否登录成功
-op7=>operation: 获取对应验证码
-op9=>operation: 将识别成功验证码存入库
-cond5=>condition: 验证码是否已在样本库中
+![add image](https://github.com/siuszy/ecnu_login/raw/master/flowchart.png)
 
-
-st->op1->op2->cond1
-cond1(yes)->op4->cond2
-cond1(no)->op3->op4->cond2
-cond2(yes)->op7->op8
-cond2(no)->cond3
-cond3(yes)->op5->op6(left)->op8
-cond3(no)->op6(left)->op8
-op8->cond4
-cond4(yes)->cond5
-cond4(no)->op2
-cond5(yes)->e
-cond5(no)->op9->e
-```
 
 这里有两个地方需要稍作说明:
 
@@ -511,6 +479,7 @@ if __name__ == '__main__':
 ![add image](https://github.com/siuszy/ecnu_login/raw/master/test.png)
 
 这里我没有调用本地保存的模型，进行了重新训练并测试，挑选了尝试次数比较少的一个结果，易于展示。当然，别的一些测试中，一般来讲至多10次尝试之后能够准确识别出验证码。换个角度，用不严谨的一个数学思维来说，如果验证码能够比较成功的识别10个数字中的6个，单次尝试成功概率大约是13%，主函数封装后包含一个回调机制（通俗点，死循环），所以理论上尝试次数不会太多。
+
 这里插一句题外话，如果有了解jupyter-themes插件的朋友，耐心阅读到这里的你请不要觉得这张测试结果样例背景色非常丑，因为我身边所有的好友都已经吐槽过了。但在这里，还是强烈推荐，**gruvboxl**，护眼主题色，你值得拥有！
 
 # 写在最后

@@ -91,7 +91,7 @@ class ecnu_login():
 ## 模拟登录的初步操作
 
 ```python
- 	def open(self):
+    def open(self):
         """
         打开网页输入用户名/密码并点击
         :return: None
@@ -158,7 +158,7 @@ class ecnu_login():
 ##  验证码的获取
 
 ```python
-	def get_position(self):
+    def get_position(self):
         """
         获取验证码位置
         :return: 验证码位置元组
@@ -207,7 +207,7 @@ class ecnu_login():
 ### 样本库匹配
 
 ```python
-	def is_pixel_equal(self, image1, image2, x, y):
+    def is_pixel_equal(self, image1, image2, x, y):
         """
         判断两个像素是否相同
         :param image1: 图片1
@@ -271,7 +271,7 @@ class ecnu_login():
 ### 简单的神经网络识别
 #### 工具函数
 ```python
- 	def create_captcha(self, number, shear=0, size=(36,36)):
+    def create_captcha(self, number, shear=0, size=(36,36)):
         """
         :param image: 图片
         :param shear: 错切比例
@@ -306,7 +306,7 @@ class ecnu_login():
 
 #### 生成训练图片集
 ```python
-	def generate_sample(self):
+    def generate_sample(self):
         """
         随机生成图例及相应标签的方法
         :return: 一个图片集合及其对应标签
@@ -348,7 +348,7 @@ class ecnu_login():
 
 #### 模型训练与预测
 ```python
-	def train_model(self):
+    def train_model(self):
         """
         训练模型并保存
         :return: 
@@ -403,7 +403,7 @@ class ecnu_login():
 # 测试
 
 ```python
-	def main(self):
+    def main(self):
         """
         登录
         :return:

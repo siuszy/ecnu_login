@@ -1,7 +1,7 @@
 # 闲聊	
 依稀记得几个月前和陈老哥吹牛说要分分钟搞定学校数据库自动化登录，结果稍微分析一下网页发现验证码无法以右键另存为的形式取到本地，貌似学校的验证码点击刷新的识别还是比较**sensitive**的。所以最近看了一些爬虫、机器学习的材料之后，上周末想要再尝试一下能不能做到识别验证码的一个效果，今天则是稍微作一个总结。
 
-在开始之前，还是想说明一下，本文中的分析思路/基础代码框架主要参考了两个来源：https://cuiqingcai.com/5052.html](https://cuiqingcai.com/5052.html)， 崔庆才老师的个人网点，也是我爬虫这一块一直仰慕的男神。 另外机器学习部分参考的是 **[澳]Robert Layton**的《Python数据挖掘入门与实践》的第八章。代码整体框架则是借鉴了崔老师在CookiesPool中底层代码中的一部分。[https://github.com/Python3WebSpider/CookiesPool](https://github.com/Python3WebSpider/CookiesPool)。
+在开始之前，还是想说明一下，本文中的分析思路/基础代码框架主要参考了两个来源：[https://cuiqingcai.com/5052.html](https://cuiqingcai.com/5052.html)， 崔庆才老师的个人网点，也是我爬虫这一块一直仰慕的男神。 另外机器学习部分参考的是 **[澳]Robert Layton**的《Python数据挖掘入门与实践》的第八章。代码整体框架则是借鉴了崔老师在CookiesPool中底层代码中的一部分。[https://github.com/Python3WebSpider/CookiesPool](https://github.com/Python3WebSpider/CookiesPool)。
 
  # 环境准备
 我非常喜欢用Anaconda下的Jupyter（初学者的最大特点），但是最近在做很多事情的时候发觉pycharm好像更适合一些偏探索/开发类的工作。不过要找到一个专业版也不容易哈。推荐使用上述两个环境或者Spyder，因为后续还有比较多的库引入，单独的Python使用起来稍微有一些复杂。
